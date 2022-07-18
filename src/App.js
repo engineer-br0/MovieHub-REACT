@@ -26,7 +26,7 @@ export default App;
 */
 
 function App(){
-  
+  <div>hey</div>
 }
 
 export default App;
