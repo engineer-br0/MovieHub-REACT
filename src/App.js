@@ -3,6 +3,8 @@ import './App.css';
 import MovieList from './components/MovieList';
 import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
+import AddFavourite from './components/AddToFavourites';
+
 
 const App = () => {
 	// const [movies, setMovies] = useState([        {
@@ -31,8 +33,8 @@ const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
 
-	const getMovieRequesta = async () => {
-		const url = `http://www.omdbapi.com/?s=star wars&apikey=263d22d8`;
+	const getMovieRequest = async (searchValue) => {
+		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
 
 		const response = await fetch(url);
 		const responseJson = await response.json();
@@ -42,8 +44,9 @@ const App = () => {
 		}
 	};
 
-  const getMovieRequest = () => {
-    fetch("http://www.omdbapi.com/?s=star wars&apikey=263d22d8") .then(response => {
+
+  const getMovieRequesta = (searchValue) => {
+    fetch("http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8") .then(response => {
       return response.json()
     })
     .then(responseJson =>{
@@ -56,8 +59,8 @@ const App = () => {
 
 
 	useEffect(() => {
-		getMovieRequest();
-	}, []);
+		getMovieRequest(searchValue);
+	}, [searchValue]);
 	
 	return (
 		<div className='container-fluid movie-app'>
@@ -66,7 +69,7 @@ const App = () => {
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
 			</div>
 			<div className='row'>
-				<MovieList movies={movies} />
+				<MovieList movies={movies} favouriteComponent={AddFavourite}/>
 			</div>
 		</div>
 	);
