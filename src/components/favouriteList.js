@@ -1,16 +1,16 @@
 import React from 'react';
 
-const favouriteList = (props) => {
-
-	return (
+const FavouriteList = (props) => {
+    return (
 		<>
 			{props.movies.map((movie, index) => (
-				<div className='image-container d-flex m-3'>
-					<img className='img' src={movie.Poster} alt='movie'></img>
+				<div className='image-container d-flex justify-content-start m-3'>
+					<img src={movie.Poster} alt='movie'></img>
+					
 				</div>
 			))}
 		</>
 	);
 };
 
-export default favouriteList ;
+export default FavouriteList ;
