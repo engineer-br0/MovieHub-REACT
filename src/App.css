@@ -1,26 +1,34 @@
+*{
+	
+}
 body {
 	background: #141414;
 	color: #ffffff;
 }
 
+.header{
+	position: fixed;
+	top: 0%;
+	left: 0;
+}
 .movie-app > .row {
-	overflow-x: auto;
 	flex-wrap: nowrap;
 }
 
 .image-container {
+	width: 300px;
 	position: relative;
 	transition: transform 0.2s;
 }
 
-.image-container:hover {
+ .image-container:hover {
 	cursor: pointer;
 	transform: scale(1.1);
 }
 
 .image-container:hover .overlay {
 	opacity: 1;
-}
+} 
 
 .overlay {
 	position: absolute;
@@ -32,4 +40,8 @@ body {
 	font-size: 20px;
 	padding: 20px;
 	text-align: center;
+}
+
+.img{
+	width: 300px;
 }
