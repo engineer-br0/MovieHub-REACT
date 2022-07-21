@@ -31,7 +31,7 @@ const App = () => {
 
 
   
-//   useEffect(() => {koii
+//   useEffect(() => {
 // 		const movieFavourites = JSON.parse(
 // 			localStorage.getItem('react-movie-app-favourites')
 // 		);
