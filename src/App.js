@@ -29,6 +29,15 @@ const App = () => {
 		setFavourites(newFavouriteList);
 	};
 
+  const deleteHandler = (movie) =>{
+     var array = [...favourites]; 
+     var index = array.indexOf(movie);
+    
+       array.splice(index, 1);
+       setFavourites(array);
+    
+  }
+
 	useEffect(() => {
 		getMovieRequest(searchValue);
 	}, [searchValue]);
@@ -52,7 +61,7 @@ const App = () => {
 			</div>
       
       <div className='row'>
-      <FavouriteList  movies={favourites} delete={DeleteFavourite}/>
+      <FavouriteList  movies={favourites} delete={DeleteFavourite} deleteHandler={deleteHandler}/>
       </div>
       
 		</div>
