@@ -27,7 +27,7 @@ body {
 }
 
 .image-container:hover .overlay {
-	opacity: 1;
+	opacity: 100%;
 } 
 
 .overlay {
@@ -44,4 +44,20 @@ body {
 
 .img{
 	width: 300px;
+}
+
+.delete{
+	background-color: rgb(104, 11, 6);
+	position: absolute;
+	bottom: 0%;
+	width: 100%;
+	text-align: center;
+	opacity: 0%;
+	transition: 0.5s;
+	padding: 20px;
+	font-size: larger;
+}
+
+.image-container:hover .delete{
+	opacity: 80%;
 }
