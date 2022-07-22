@@ -22,7 +22,6 @@ const App = () => {
 			setMovies(responseJson.Search);
 		}
 	};
-	//uys
   
 
 
@@ -36,7 +35,7 @@ const App = () => {
 		const movieFavourites = JSON.parse(
 			localStorage.getItem('react-movie-app-favourites')
 		);
-
+		//console.log(movieFavourites);
 		setFavourites(movieFavourites);
 	}, []);
 
