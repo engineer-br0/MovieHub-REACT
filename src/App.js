@@ -9,7 +9,7 @@ import DeleteFavourite from './components/DeleteFavourite';
 const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [searchValue, setSearchValue] = useState('avengers');
-  const [favourites, setFavourites] = useState([]); 
+ 
 	
 
 	const getMovieRequest = async (searchValue) => {
@@ -29,7 +29,7 @@ const App = () => {
 		getMovieRequest(searchValue);
 	}, [searchValue]);
 
-
+	const [favourites, setFavourites] = useState(movies); 
   
   useEffect(() => {
 		const movieFavourites = JSON.parse(
