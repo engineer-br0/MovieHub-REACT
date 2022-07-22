@@ -17,9 +17,11 @@ const App = () => {
 
 		const response = await fetch(url);
 		const responseJson = await response.json();
+		console.log(responseJson.Search);
 
 		if (responseJson.Search) {
 			setMovies(responseJson.Search);
+			console.log(responseJson.Search);
 		}
 	};
   
