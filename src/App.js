@@ -9,7 +9,7 @@ import DeleteFavourite from './components/DeleteFavourite';
 const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [searchValue, setSearchValue] = useState('avengers');
- 
+    const [favourites, setFavourites] = useState([]); 
 	
 
 	const getMovieRequest = async (searchValue) => {
@@ -29,27 +29,27 @@ const App = () => {
 		getMovieRequest(searchValue);
 	}, [searchValue]);
 
-	const [favourites, setFavourites] = useState(movies); 
+	
   
-  useEffect(() => {
-		const movieFavourites = JSON.parse(
-			localStorage.getItem('react-movie-app-favourites')
-		);
-		console.log(movieFavourites);
-		setFavourites(movieFavourites);
-	}, []);
+//   useEffect(() => {
+// 		const movieFavourites = JSON.parse(
+// 			localStorage.getItem('react-movie-app-favourites')
+// 		);
+// 		console.log(movieFavourites);
+// 		setFavourites(movieFavourites);
+// 	}, []);
 
 
 
-	const saveToLocalStorage = (items) => {
-		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
-	};
+	// const saveToLocalStorage = (items) => {
+	// 	localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
+	// };
 
   
 	const addFavouriteMovie = (movie) => {
 		const newFavouriteList = [...favourites, movie];
 		setFavourites(newFavouriteList);
-    saveToLocalStorage(newFavouriteList);
+    //saveToLocalStorage(newFavouriteList);
 	};
 
   const deleteHandler = (movie) =>{
@@ -58,7 +58,7 @@ const App = () => {
     
        array.splice(index, 1);
        setFavourites(array);
-       saveToLocalStorage(array);
+       //saveToLocalStorage(array);
   }
 
 	return (
