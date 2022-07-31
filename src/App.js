@@ -5,6 +5,8 @@ import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddToFavourites';
 import DeleteFavourite from './components/DeleteFavourite';
+ import { db } from './firebase';
+ import {collection, addDoc } from "firebase/firestore"
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
@@ -41,15 +43,38 @@ const App = () => {
 
 
 
-	// const saveToLocalStorage = (items) => {
-	// 	localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
-	// };
+	 const saveToFirebase = (items) => {
+        
+	 	//localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
+	 };
 
-  
+    // const postData = async (arr) =>{
+    //     const URL = "https://reactmovieapp-7021d-default-rtdb.firebaseio.com/mridul.json";
+	// 	const res = await fetch(URL,
+	// 		{
+	// 			method : "POST",
+	// 			headers : {
+	// 				"Content-Type" : "application/json",
+	// 			},
+	// 			body : JSON.stringify(arr)
+	// 		});
+	// }
+	const postData = async (arr) =>{
+        const URL = "https://reactmovieapp-7021d-default-rtdb.firebaseio.com/mridul.json";
+		const res = await addDoc(collection(db, "todos"),
+			{
+				method : "POST",
+				headers : {
+					"Content-Type" : "application/json",
+				},
+				body : JSON.stringify(arr)
+			});
+	}
 	const addFavouriteMovie = (movie) => {
 		const newFavouriteList = [...favourites, movie];
 		setFavourites(newFavouriteList);
-    //saveToLocalStorage(newFavouriteList);
+        //saveToFirebase(newFavouriteList);
+		postData(newFavouriteList);
 	};
 
   const deleteHandler = (movie) =>{
@@ -59,6 +84,7 @@ const App = () => {
        array.splice(index, 1);
        setFavourites(array);
        //saveToLocalStorage(array);
+	   postData(array);
   }
 
 	return (
