@@ -1,23 +1,16 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getFirestore } from "firebase/firestore"
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD6uF4KOun4OtdT38z496fJyxBAiZmGQvc",
-  authDomain: "reactmovieapp-7021d.firebaseapp.com",
-  databaseURL: "https://reactmovieapp-7021d-default-rtdb.firebaseio.com",
-  projectId: "reactmovieapp-7021d",
-  storageBucket: "reactmovieapp-7021d.appspot.com",
-  messagingSenderId: "1044366709139",
-  appId: "1:1044366709139:web:f4cdf18866539df08fd866"
-};
+    apiKey: "AIzaSyDVjgGRqZBD1SDpNoxCsyZdBnnmVyRZFyI",
+    authDomain: "todo-crud-4f48c.firebaseapp.com",
+    projectId: "todo-crud-4f48c",
+    storageBucket: "todo-crud-4f48c.appspot.com",
+    messagingSenderId: "322077130905",
+    appId: "1:322077130905:web:0c77749aa414b9a8ec3808"
+  };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-// Required for side-effects
-require("firebase/firestore");
-export {db};
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  export {db};
