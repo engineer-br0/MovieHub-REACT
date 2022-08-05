@@ -1,15 +1,15 @@
 import React from 'react';
 
-const MovieList = (props) => {
+const ShowFav = (props) => {
 	const FavouriteComponent = props.favouriteComponent;
     console.log(props.movies);
 	return (
 		<>
-			{props.movies?.map((movie, index) => (
+			{props.movies?.map((movies, index) => (
 				<div key={index} className='image-container d-flex justify-content-start m-3'>
-					<img src={movie.Poster} alt='movie'></img>
+					<img src={movies.movie.Poster} alt='movie'></img>
 					<div
-						onClick={() => props.handleFavouritesClick(movie)}
+						onClick={() => props.handleFavouritesClick(movies.movie)}
 						className='overlay d-flex align-items-center justify-content-center'
 					>
 						<FavouriteComponent />
@@ -20,4 +20,4 @@ const MovieList = (props) => {
 	);
 };
 
-export default MovieList;
+export default ShowFav;
