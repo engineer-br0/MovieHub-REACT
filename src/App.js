@@ -62,7 +62,6 @@ var fd=[];
 
 	const addFavouriteMovie = (movie) => {
 		const newFavouriteList = [...favourites, movie];
-		setFavourites(newFavouriteList);
 		postData( movie);
 	};
 
