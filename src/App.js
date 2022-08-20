@@ -11,17 +11,14 @@ import ShowFav from './components/ShowFav';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
-	const [searchValue, setSearchValue] = useState("avengers");
+	const [searchValue, setSearchValue] = useState("batman");
     const [favourites, setFavourites] = useState([]); 
 	const [title, setTitle] = useState("");
 	const [todos, setTodos] = useState([]);
 
 	const getMovieRequest = async (searchValue) => {
 		console.log(searchValue);
-		//const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
-          //const url = 'https://1mdb-data-searching.p.rapidapi.com/om/?s={Lion}&rapidapi-key=0be373b049msha3fbd3c5639e5d9p153cb9jsn124794d17a9a';
-		  const url = 'https://www.omdbapi.com/?s={searchValue}&apikey=a9099ac7';
-		  console.log(searchValue);
+		  const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=a9099ac7`;
 		const response = await fetch(url);
 		const responseJson = await response.json();
        console.log(responseJson);
@@ -31,9 +28,7 @@ const App = () => {
 		}
 	};
 	useEffect(() => {
-		console.log(searchValue);
 		getMovieRequest(searchValue);
-		//console.log(movies);
 	}, [searchValue]);
 var fd=[];
 	useEffect(() => {
