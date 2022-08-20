@@ -11,28 +11,30 @@ import ShowFav from './components/ShowFav';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
-	const [searchValue, setSearchValue] = useState('avengers');
+	const [searchValue, setSearchValue] = useState("avengers");
     const [favourites, setFavourites] = useState([]); 
 	const [title, setTitle] = useState("");
 	const [todos, setTodos] = useState([]);
 
 	const getMovieRequest = async (searchValue) => {
-		const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
-
+		console.log(searchValue);
+		//const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
+          //const url = 'https://1mdb-data-searching.p.rapidapi.com/om/?s={Lion}&rapidapi-key=0be373b049msha3fbd3c5639e5d9p153cb9jsn124794d17a9a';
+		  const url = 'https://www.omdbapi.com/?s={searchValue}&apikey=a9099ac7';
+		  console.log(searchValue);
 		const response = await fetch(url);
 		const responseJson = await response.json();
-
+       console.log(responseJson);
 		if (responseJson.Search) {
 			setMovies(responseJson.Search);
-			//console.log(movies);
+			console.log(movies);
 		}
 	};
 	useEffect(() => {
+		console.log(searchValue);
 		getMovieRequest(searchValue);
 		//console.log(movies);
 	}, [searchValue]);
-	//console.log(movies);
-	//console.log("hii");
 var fd=[];
 	useEffect(() => {
 		const p = query(collection(db, "movies"));
@@ -50,33 +52,8 @@ var fd=[];
 		})
 	},[searchValue])
 
-	//console.log(favourites);
-	useEffect(() => {
-		const q = query(collection(db, "todos"));
-		const unsub =onSnapshot(q, (QuerySnapshot) => {
-			let todosArray = [];
-			QuerySnapshot.forEach((doc) => {
-				todosArray.push({...doc.data(), id:doc.id});
-			});
-			//console.log(todosArray);
-			setTodos(todosArray);
-			//console.log(todos);
-		})
-	},[])
-	  const handleDelete = async (id) => {
-		await deleteDoc(doc(db, "todos", id));
-	  };
+	
 
-
-    const handleSubmit = async (e) => {
-		e.preventDefault();
-		if(title !== ""){
-			await addDoc(collection(db, "todos"),{
-			  title 
-			});
-			setTitle("");
-		}
-	}
 	const postData = async ( movie) =>{
 		//e.preventDefault();
 		await addDoc(collection(db, "movies"),{

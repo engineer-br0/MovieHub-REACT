@@ -2,7 +2,7 @@ import React from 'react';
 
 const ShowFav = (props) => {
 	const FavouriteComponent = props.favouriteComponent;
-    console.log(props.movies);
+    //console.log(props.movies);
 	return (
 		<>
 			{props.movies?.map((movies, index) => (
