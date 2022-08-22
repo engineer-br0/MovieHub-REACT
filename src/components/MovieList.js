@@ -1,4 +1,5 @@
 import React from 'react';
+import './Movielist.css'
 
 const MovieList = (props) => {
 	const FavouriteComponent = props.favouriteComponent;

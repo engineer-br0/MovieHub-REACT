@@ -16,14 +16,16 @@ body {
 }
 
 .image-container {
-	width: 300px;
+	height: 300px;
+	width: 200px;
+	/* overflow: hidden; */
 	position: relative;
 	transition: transform 0.2s;
 }
 
  .image-container:hover {
 	cursor: pointer;
-	transform: scale(1.1);
+	transform: scale(1.2);
 }
 
 .image-container:hover .overlay {
