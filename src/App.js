@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Firestore } from 'firebase/firestore';
 import './App.css';
 import MovieList from './components/MovieList';
 import MovieListHeading from './components/MovieListHeading';
@@ -14,17 +13,14 @@ const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [searchValue, setSearchValue] = useState("batman");
     const [favourites, setFavourites] = useState([]); 
-	const [delId, setDel] = useState("");
 
 	const getMovieRequest = async (searchValue) => {
-		//console.log(searchValue);
 		  const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=a9099ac7`;
 		const response = await fetch(url);
 		const responseJson = await response.json();
        console.log(responseJson);
 		if (responseJson.Search) {
 			setMovies(responseJson.Search);
-			//console.log(movies);
 		}
 	};
 	useEffect(() => {
@@ -35,15 +31,10 @@ var fd=[];
 		const p = query(collection(db, "movies"));
 		const punsub =onSnapshot(p, (QuerySnapshot) => {
 			let moviesArray = [];
-			let del = [];
 			QuerySnapshot.forEach((doc) => {
 				moviesArray.push({...doc.data(), id:doc.id});
 			});
-			//console.log(moviesArray);
 			setFavourites(moviesArray);
-			
-			//console.log(fd);
-			//console.log(favourites);
 		})
 	},[searchValue])
 
@@ -57,24 +48,21 @@ var fd=[];
 		  });
 	}
 
-	const deleteData = async (id) => {
+	const deleteData = async (movie) => {
 		
-		var temp = id.id;
-		console.log(temp);
+		var temp = movie.id;
 		var str = temp.toString();
-		console.log(str);
 		await deleteDoc(doc(db, "movies", str));
 
 	  };
 
 	const addFavouriteMovie = (movie) => {
-		//const newFavouriteList = [...favourites, movie];
 		postData( movie);
 	};
 
-  const deleteHandler = (id) =>{
-	console.log(id);
-	   deleteData( id);
+  const deleteHandler = (movie) =>{
+	console.log(movie);
+	   deleteData( movie);
   }
 
 	return (
