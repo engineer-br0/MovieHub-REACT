@@ -1,0 +1,8 @@
+.footer{
+    margin-top: 80px;
+    color: black;
+    font-weight: 500;
+    background-image: linear-gradient(to right, rgb(252, 147, 18) , white, rgb(98, 226, 69) );
+    width: 100vw;
+    text-align: center;
+}

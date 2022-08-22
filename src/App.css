@@ -4,12 +4,15 @@ body {
 }
 
 .header{
-	position: fixed;
-	top: 0%;
-	left: 0;
 }
-.movie-app > .row {
+.movie-app {
+	display: flex;   
 	flex-wrap: nowrap;
+	 overflow-x: auto;
+}
+
+.movie-app::-webkit-scrollbar {
+	display: none;
 }
 
 .image-container {
