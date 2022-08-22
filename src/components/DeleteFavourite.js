@@ -1,10 +1,11 @@
 import React from "react";
+import './delete.css'
 
 const DeleteFavourite = () => {
 
     return(
         <div  className="">
-           <div>Delete from favourites</div>
+           <div className="heada">Delete from favourites</div>
            
         </div>
     );

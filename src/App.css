@@ -3,7 +3,10 @@ body {
 	color: #ffffff;
 }
 
-.header{
+.head{
+	color: rgb(250, 253, 250);
+	font-size: 60%;
+	overflow: hidden;
 }
 .movie-app {
 	display: flex;   
@@ -39,8 +42,7 @@ body {
 	transition: 0.5s ease;
 	opacity: 0;
 	bottom: 0;
-	font-size: 20px;
-	padding: 20px;
+	padding: 9px;
 	text-align: center;
 }
 

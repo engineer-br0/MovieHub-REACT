@@ -1,9 +1,10 @@
 import React from 'react';
+import './Favourite.css'
 
 const AddFavourites = () => {
 	return (
 		<>
-			<span className='mr-2'>Add to Favourites</span>
+			<span className=' add mr-2' >Add to Favourites</span>
 			<svg
 				width='1em'
 				height='1em'
