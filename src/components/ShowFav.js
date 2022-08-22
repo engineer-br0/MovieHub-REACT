@@ -9,9 +9,9 @@ const ShowFav = (props) => {
 				<div key={index} className='image-container d-flex justify-content-start m-3'>
 					<img src={movies.movie.Poster} alt='movie'></img>
 					<div
-						onClick={() => props.handleFavouritesClick(movies.movie)}
+						onClick={() => props.handleFavouritesClick(movies)}
 						className='overlay d-flex align-items-center justify-content-center'
-					>
+					>   
 						<FavouriteComponent />
 					</div>
 				</div>
