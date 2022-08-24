@@ -68,12 +68,12 @@ var fd=[];
 
 	return (
 
-		<div className='container-fluid '>
+		<div className=''>
 
 <div >
       
     </div>
-			<div className=' row  mt-4 mb-4'>
+			<div className='nav row mt-4 mb-4'>
 				<MovieListHeading heading='MovieFlix' />
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
 			</div>

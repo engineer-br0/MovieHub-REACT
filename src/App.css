@@ -1,6 +1,12 @@
 body {
 	background: #141414;
 	color: #ffffff;
+	overflow-x: hidden;
+}
+
+.nav{
+	width: 100vw;
+
 }
 
 .head{
